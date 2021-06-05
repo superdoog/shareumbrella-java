@@ -1,11 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shareumbrella.mapper.PointMapper">
-    
+
     <resultMap id="PointResultMap" type="com.shareumbrella.entity.Point">
         <result property="pid" column="pid"/>
         <result property="pname" column="pname"/>
         <result property="stock" column="name"/>
     </resultMap>
+    <update id="updateById" parameterType="com.shareumbrella.entity.Point">
+        update `point`
+        set pname=#{pname},
+            stock=#{stock}
+        where pid = #{pid}
+    </update>
+
+    <select id="queryAll" resultType="com.shareumbrella.entity.Point">
+        select *
+        from point
+    </select>
+
+    <select id="selectById" resultType="com.shareumbrella.entity.Point">
+        select *
+        from point
+        where pid = #{pid}
+    </select>
+
 
 </mapper>

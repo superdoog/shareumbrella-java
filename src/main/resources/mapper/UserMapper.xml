@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shareumbrella.mapper.UserMapper">
+
+    <resultMap id="UserResultMap" type="com.shareumbrella.entity.User">
+        <result property="openid" column="openid"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+    </resultMap>
+
+    <insert id="add" parameterType="com.shareumbrella.entity.User">
+        insert into user(openid, username, password)
+        values (#{openid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
+    </insert>
+    <select id="getById" resultMap="UserResultMap">
+        select *
+        from `user`
+        where openid = #{openid}
+    </select>
+
+</mapper>

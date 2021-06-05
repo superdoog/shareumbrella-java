@@ -1,11 +1,13 @@
 package com.shareumbrella.service.impl;
 
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.shareumbrella.entity.Point;
 import com.shareumbrella.mapper.PointMapper;
 import com.shareumbrella.service.IPointService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * <p>
@@ -17,6 +19,22 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional
-public class PointServiceImpl extends ServiceImpl<PointMapper, Point> implements IPointService {
+public class PointServiceImpl implements IPointService {
+    @Autowired
+    private PointMapper pointMapper;
 
+    @Override
+    public Point getById(int pid) {
+        return pointMapper.selectById(pid);
+    }
+
+    @Override
+    public List<Point> queryAll() {
+        return pointMapper.queryAll();
+    }
+
+    @Override
+    public boolean updateById(Point point) {
+        return pointMapper.updateById(point);
+    }
 }

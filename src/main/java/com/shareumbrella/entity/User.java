@@ -7,28 +7,17 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
-/**
- * <p>
- *
- * </p>
- *
- * @author lv
- * @since 2021-05-26
- */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class Point implements Serializable {
+public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    private String openid;
 
-    private Integer pid;
+    private String username;
 
-    private String pname;
-
-    private Integer stock;
-
-
+    private String password;
 }

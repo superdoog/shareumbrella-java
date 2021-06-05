@@ -1,9 +1,9 @@
 package com.shareumbrella.service.impl;
 
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.shareumbrella.entity.Umbrella;
 import com.shareumbrella.mapper.UmbrellaMapper;
 import com.shareumbrella.service.IUmbrellaService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,6 +17,18 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional
-public class UmbrellaServiceImpl extends ServiceImpl<UmbrellaMapper, Umbrella> implements IUmbrellaService {
+public class UmbrellaServiceImpl implements IUmbrellaService {
 
+    @Autowired
+    private UmbrellaMapper umbrellaMapper;
+
+    @Override
+    public Umbrella getById(int uid) {
+        return umbrellaMapper.getById(uid);
+    }
+
+    @Override
+    public boolean updateById(Umbrella umbrella) {
+        return umbrellaMapper.updateMapper(umbrella);
+    }
 }

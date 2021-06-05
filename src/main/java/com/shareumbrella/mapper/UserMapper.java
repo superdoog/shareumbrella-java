@@ -1,6 +1,6 @@
 package com.shareumbrella.mapper;
 
-import com.shareumbrella.entity.Umbrella;
+import com.shareumbrella.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -12,9 +12,9 @@ import org.apache.ibatis.annotations.Mapper;
  * @since 2021-05-26
  */
 @Mapper
-public interface UmbrellaMapper{
+public interface UserMapper {
 
-    Umbrella getById(int uid);
+    void add(User user);
 
-    boolean updateMapper(Umbrella umbrella);
+    User getById(String openid);
 }

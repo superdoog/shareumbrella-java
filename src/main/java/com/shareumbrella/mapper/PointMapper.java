@@ -1,7 +1,9 @@
 package com.shareumbrella.mapper;
 
 import com.shareumbrella.entity.Point;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
  * <p>
@@ -11,6 +13,12 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author lv
  * @since 2021-05-26
  */
-public interface PointMapper extends BaseMapper<Point> {
+@Mapper
+public interface PointMapper {
 
+    List<Point> queryAll();
+
+    Point selectById(Integer pid);
+
+    boolean updateById(Point point);
 }

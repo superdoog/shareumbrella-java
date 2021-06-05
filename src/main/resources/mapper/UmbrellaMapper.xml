@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shareumbrella.mapper.UmbrellaMapper">
+    <update id="updateMapper" parameterType="com.shareumbrella.entity.Umbrella">
+        update umbrella
+        set pid=#{pid}
+        where uid = #{uid}
+    </update>
 
 
+    <select id="getById" resultType="com.shareumbrella.entity.Umbrella">
+        select *
+        from umbrella
+        where uid = #{uid}
+    </select>
 </mapper>
